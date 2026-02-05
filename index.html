@@ -85,10 +85,10 @@
           palabra.
         </p>
         <div class="button-grid">
-          <button type="button" class="btn soft">Eres mi inspiración</button>
-          <button type="button" class="btn soft">Tu sonrisa es arte</button>
-          <button type="button" class="btn soft">Gracias por ser tú</button>
-          <button type="button" class="btn soft">Eres luz infinita</button>
+      <button type="button" class="btn soft">Tu voz 💞</button>
+      <button type="button" class="btn soft">Nuestro futuro 🌑</button>
+      <button type="button" class="btn soft">Mi amor por ti 🤍</button>
+      <button type="button" class="btn soft">Eres mi hogar 🏡</button>
         </div>
       </section>
 
@@ -123,5 +123,69 @@
     <footer class="footer">
       <p>Con amor y admiración infinita. 💗</p>
     </footer>
+
+    <script>
+const mensajes = [
+  "Tu voz es hermosa… podría escucharla toda la vida.",
+  "Eres la mujer con la que quiero despertar cada mañana.",
+  "No solo eres bonita.",
+  "Sueño contigo, con tener hijos contigo y una vida juntos.",
+  "Tu sonrisa calma mis tormentas.",
+  "Eres mi paz, mi amor y mi futuro.",
+  "Contigo aprendí lo que significa amar de verdad.",
+  "Eres la mujer de mi vida, no tengo dudas.",
+  "Quiero construir todo contigo.",
+  "Gracias por existir.",
+  "Tu ternura me salva.",
+  "Eres el regalo más hermoso que me dio la vida."
+];
+
+document.querySelectorAll(".btn.soft").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+    mostrarMensaje(msg);
+  });
+});
+
+function mostrarMensaje(texto) {
+  const box = document.createElement("div");
+  box.className = "love-popup";
+  box.innerText = texto;
+
+  document.body.appendChild(box);
+
+  setTimeout(() => box.classList.add("show"), 10);
+  setTimeout(() => {
+    box.classList.remove("show");
+    setTimeout(() => box.remove(), 400);
+  }, 3000);
+}
+</script>
+
+<style>
+.love-popup{
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) scale(.8);
+  background: linear-gradient(135deg,#ffb6c1,#ffd6e7);
+  padding: 18px 26px;
+  border-radius: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  opacity:0;
+  transition:.4s ease;
+  z-index:999;
+  text-align:center;
+  max-width:80%;
+}
+
+.love-popup.show{
+  opacity:1;
+  transform:translateX(-50%) scale(1);
+}
+</style>
+
   </body>
 </html>
