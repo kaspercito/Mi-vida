@@ -125,24 +125,35 @@
     </footer>
 
     <script>
-const mensajes = [
+let mensajes = [
   "Tu voz es hermosa… podría escucharla toda la vida.",
   "Eres la mujer con la que quiero despertar cada mañana.",
-  "No solo eres bonita.",
-  "Sueño contigo, con tener hijos contigo y una vida juntos.",
+  "No solo eres bonita, eres hogar.",
+  "Sueño contigo, con nuestros hijos y nuestra vida juntos.",
   "Tu sonrisa calma mis tormentas.",
   "Eres mi paz, mi amor y mi futuro.",
   "Contigo aprendí lo que significa amar de verdad.",
   "Eres la mujer de mi vida, no tengo dudas.",
+  "Tu forma de ser me enamora más cada día.",
   "Quiero construir todo contigo.",
-  "Gracias por existir.",
+  "Tu mirada me hace sentir en casa.",
+  "Gracias por existir, amor.",
   "Tu ternura me salva.",
   "Eres el regalo más hermoso que me dio la vida."
 ];
 
+let mensajesPendientes = [...mensajes];
+
 document.querySelectorAll(".btn.soft").forEach(btn => {
   btn.addEventListener("click", () => {
-    const msg = mensajes[Math.floor(Math.random() * mensajes.length)];
+
+    if (mensajesPendientes.length === 0) {
+      mensajesPendientes = [...mensajes]; // reinicia cuando se acaban
+    }
+
+    const index = Math.floor(Math.random() * mensajesPendientes.length);
+    const msg = mensajesPendientes.splice(index, 1)[0];
+
     mostrarMensaje(msg);
   });
 });
@@ -161,6 +172,7 @@ function mostrarMensaje(texto) {
   }, 3000);
 }
 </script>
+
 
 <style>
 .love-popup{
